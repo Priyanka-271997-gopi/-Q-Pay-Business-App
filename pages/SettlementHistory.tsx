@@ -67,8 +67,7 @@ const PhonePeIcon: React.FC<{ className?: string }> = (props) => (
 
 
 const API_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMjgyMDUiLCJtb2JpbGUiOiI3MzU4MjIxMzU0IiwiYXBwX2lkIjoiNjAiLCJtaWQiOiIzNDgiLCJ0b2tlbiI6IjZjZjFhMzNhZDJkOGQyNjFkMWYwNDBiMWIwZGViMjc1IiwiZ3JvdXBJZCI6IjIxMDYxIiwiaXNzIjoiMjgyMDUifQ.ADopz72M1Z-eKpFXJd04RZvLxXHyJ8fFaT4HnzxxQCk';
-const API_BASE_URL = '/wallet/api/v1/transaction_history';
-
+const API_BASE_URL = '/api';
 
 
 const SettleNowModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
@@ -213,7 +212,7 @@ const SettlementHistoryPage: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_BASE_URL}?service_id=111&page=${pageNum}`, {
+      const response = await fetch(`${API_BASE_URL}/transaction_history?service_id=111&page=${pageNum}`, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${API_TOKEN}`,
